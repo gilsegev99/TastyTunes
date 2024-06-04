@@ -1,9 +1,9 @@
+from typing import Any
 from django.db import models
 from datetime import time
 
 class User(models.Model):
 
-    userID = models.CharField(max_length=8, unique=True)
     username = models.CharField(max_length=15)
     firstName = models.CharField(max_length=15)
     lastName = models.CharField(max_length=15)
@@ -17,5 +17,5 @@ class User(models.Model):
     status = models.CharField(max_length=10, default='active')
     totalPosts = models.IntegerField(blank=False)
     
-    
-    
+    def __str__(self):
+        return self.username
