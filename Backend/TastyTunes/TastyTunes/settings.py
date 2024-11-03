@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'users',
     'posts',
     'website',
+    'ninja_extra',
+    'ninja_jwt',
 ]
 
 MIDDLEWARE = [
