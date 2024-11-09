@@ -5,7 +5,9 @@ scripts:
   - cd TastyTunes && python manage.py makemigrations
   migrate:
   - cd TastyTunes && python manage.py migrate
+  shell:
+  - cd TastyTunes && python manage.py shell
   curl_auth: |
-    curl -X POST -H "Content-Type: application/json" -d '{"username": "gilse", "password: "tastytunes"}' http://127.0.0.1:8000/api/token/pair
+    curl -X POST -H "Content-Type: application/json" -d '{"username": "gilse", "password": "tastytunes"}' http://127.0.0.1:8000/api/token/pair
   curl_protect: |
-    curl -X GET -H "Authorization: Bearer <curl-auth-access-token>" http://127.0.0.1:8000/api/token/pair
+    curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMwNzU4MDE0LCJpYXQiOjE3MzA3NTc3MTQsImp0aSI6IjRmODAyY2RjZDY1ZDRjMGJiYTNkZmU4MWU0Njk2NDg1IiwidXNlcl9pZCI6MX0.Gxi8G743aq7j7YRWFS06ClBgpqqrmtmaHEsD13xnJ7c" http://127.0.0.1:8000/api/me
