@@ -26,10 +26,8 @@ export default function Page() {
         if (response.ok) {
             console.log("logged in")
             router.replace("/")
-
         }
-
-
+     
     }
     
 

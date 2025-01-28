@@ -6,22 +6,22 @@ const TOKEN_REFRESH_NAME = "auth-refresh-token"
 
 export async function getToken(){
     // api requests
-    const myCookie = await cookies()
-    const myAuthToken = myCookie.get(TOKEN_NAME)
+    const cookieStore = await cookies()
+    const myAuthToken = await cookieStore.get(TOKEN_NAME)
     return myAuthToken?.value
 }
 
 export async function getRefreshToken(){
     // api requests
-    const myCookie = await cookies()
-    const myAuthToken = myCookie.get(TOKEN_REFRESH_NAME)
+    const cookieStore = await cookies()
+    const myAuthToken = cookieStore.get(TOKEN_REFRESH_NAME)
     return myAuthToken?.value
 }
 
 export async function setToken(authToken){
     // login
-    const myCookie = await cookies()
-    const myAuthToken = myCookie.set({
+    const cookieStore = await cookies()
+    const myAuthToken = cookieStore.set({
         name: TOKEN_NAME,
         value: authToken,
         httpOnly: true, // limits client-side js
@@ -34,8 +34,8 @@ export async function setToken(authToken){
 
 export async function setRefreshToken(authRefreshToken){
     // login
-    const myCookie = await cookies()
-    const myAuthToken = myCookie.set({
+    const cookieStore = await cookies()
+    const myAuthToken = cookieStore.set({
         name: TOKEN_REFRESH_NAME,
         value: authRefreshToken,
         httpOnly: true, // limits client-side js

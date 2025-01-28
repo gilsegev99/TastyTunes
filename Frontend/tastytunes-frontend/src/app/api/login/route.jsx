@@ -1,6 +1,6 @@
 "use server"
 
-import { setRefreshToken, setToken } from '@/app/lib/auth'
+import { setRefreshToken, setToken, getToken } from '@/app/lib/auth'
 import { NextResponse } from 'next/server'
 
 const DJANGO_API_LOGIN_URL = "http://127.0.0.1:8000/api/token/pair"
@@ -22,6 +22,8 @@ export async function POST(request) {
         const {access, refresh} = responseData
         setToken(access) 
         setRefreshToken(refresh)
+        const mytoekn = await getToken()
+        console.log("THis token was just created:", mytoekn)
         return NextResponse.json({"loggedIn": true}, {status: 200})
 
     }   
